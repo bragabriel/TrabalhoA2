@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 //#include "operacoes.c"
+//herica testando
 
 #define TAM 23
 
@@ -27,7 +28,7 @@ void ordena(Pib *ponteiro, int esq, int dir); //ordena o vetor de struct
 
 
 /* ****************************************** */
-/* **** operações - arquivo operacoes.c  **** */
+/* **** operaÃ§Ãµes - arquivo operacoes.c  **** */
 /* ****************************************** */
 //#include <stdio.h>
 //#include <stdlib.h>
@@ -55,7 +56,7 @@ void inicializaVetor(Pib *p){
 	for(i=0; i<TAM; i++){
 		
 		//Lendo arquivos do txt
-		fgets(p[i].nome, 2, arqEnt); //Lendo a string, parando no espaço em branco. 
+		fgets(p[i].nome, 2, arqEnt); //Lendo a string, parando no espaÃ§o em branco. 
 		fscanf(arqEnt, "%s %f %f %f", &p[i].nome, &p[i].taxa20, &p[i].taxa21, &p[i].taxa22); //Atribuindo os dados do txt para variaveis aqui no programa
 		
 		//Calculando meu indice
@@ -99,8 +100,8 @@ void ordena(Pib *vetor, int esquerda, int direita){
 	i = esquerda;
 	j = direita;
 	
-	//Se os dados já estão um pouco ordenados:
-	//Eh melhor começar do meio.
+	//Se os dados jÃ¡ estÃ£o um pouco ordenados:
+	//Eh melhor comeÃ§ar do meio.
 	pivo = (esquerda + direita) / 2 ; //usando indice do meio como pivo
 	
 
@@ -135,7 +136,7 @@ void ordena(Pib *vetor, int esquerda, int direita){
 
 
 /* ************************************************** */
-/* **** main - arquivo de utilização do usuario  **** */
+/* **** main - arquivo de utilizaÃ§Ã£o do usuario  **** */
 /* ************************************************** */
 
 //#include <stdio.h>
@@ -143,7 +144,7 @@ void ordena(Pib *vetor, int esquerda, int direita){
 
 int main () {
 
-	Pib dadosPib[TAM]; //dadosPib é um vetor do tipo Pib
+	Pib dadosPib[TAM]; //dadosPib Ã© um vetor do tipo Pib
 
     inicializaVetor(&dadosPib[TAM]); //inicializando o vetor de Struct, e recebendo os valores do txt
     
@@ -153,7 +154,7 @@ int main () {
 	printf("\t\t Dados ordenados utilizando QuickSort:\n");
     ordena(&dadosPib[TAM], 0, TAM-1);//ordenando usando o QuickSort, de acordo com o indice
 
-	imprime(&dadosPib[TAM]); //imprimindo o vetor de Struct após a ordenação
+	imprime(&dadosPib[TAM]); //imprimindo o vetor de Struct apÃ³s a ordenaÃ§Ã£o
     
     return 0;
 
