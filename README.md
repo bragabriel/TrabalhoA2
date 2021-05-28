@@ -12,6 +12,7 @@ Afazeres: <br>
 ❌ TAD <br>
 ❌ Como executar o programa <br>
 ❌ Busca binária/hashing <br>
+❌ Mudar o nome desse arquivo para leiame.txt, conforme solicitação do Sérgio <br>
  <br> <br>
 Bônus: <br>
 ❌ Utilizar lista, fila ou pilha(com alocação dinâmica de memória) 
