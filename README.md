@@ -5,10 +5,10 @@ O que já fizemos: <br>
 ✅ Struct <br>
 ✅ Algoritmos de implementação <br>
 ✅ Desenvolvido em linguagem C <br>
+✅ economia.txt
 <br> <br>
 Afazeres: <br>
-❌ economia.txt (está incompleto) <br>
-❌ teiame.txt (está incompleto) <br>
+❌ leiame.txt (está incompleto) <br>
 ❌ TAD <br>
 ❌ Como executar o programa <br>
 ❌ Busca binária/hashing <br>
