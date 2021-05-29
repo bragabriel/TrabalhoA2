@@ -15,7 +15,9 @@ Afazeres: <br>
 ❌ Mudar o nome desse arquivo para leiame.txt, conforme solicitação do Sérgio <br>
  <br> <br>
 Bônus: <br>
-❌ Utilizar lista, fila ou pilha(com alocação dinâmica de memória) 
+❌ Utilizar lista, fila ou pilha(com alocação dinâmica de memória) <br><br>
+Bônus (opcional): <br>
+❌ Adicionar o PIB referente a cada Estado. 
 <br> <br>
 
 ## Integrantes:
