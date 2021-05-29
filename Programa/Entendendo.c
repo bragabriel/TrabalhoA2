@@ -3,18 +3,15 @@
 #include <string.h>
 //#include "operacoes.c"
 
-#define TAM 23
 
-/* *************************************** */
-/* **** header - arquivo header.h  **** */
-/* *************************************** */
+#define TAM 50
+/* ************* */
+/* ** header - arquivo header.h  ** */
+/* ************* */
 
 /* Struct principal */
 	typedef struct _pib{
-		char nome[2];
-		float taxa20;
-		float taxa21;
-		float taxa22;
+		int ano;
 		float indice;
 }Pib;
 
@@ -24,18 +21,16 @@ void imprime(Pib *ponteiro); //imprime o vetor de struct
 void ordena(Pib *ponteiro, int esq, int dir); //ordena o vetor de struct
 
 
-
-
-/* ****************************************** */
-/* **** operações - arquivo operacoes.c  **** */
-/* ****************************************** */
+/* ************** */
+/* ** operações - arquivo operacoes.c  ** */
+/* ************** */
 //#include <stdio.h>
 //#include <stdlib.h>
 //#include "header.h"
 //#define TAM 23
 
-/*--------------------------------------------------------------------------------------*/
-/* 								funcao que inicializa o Vetor 							*/
+/* /--------------------------------------------------------------------------------------/*/
+//								funcao que inicializa o Vetor 							
 void inicializaVetor(Pib *p){
 			// *p = ponteiro para dadosPib
     
@@ -55,20 +50,19 @@ void inicializaVetor(Pib *p){
 	for(i=0; i<TAM; i++){
 		
 		//Lendo arquivos do txt
-		fgets(p[i].nome, 2, arqEnt); //Lendo a string, parando no espaço em branco. 
-		fscanf(arqEnt, "%s %f %f %f", &p[i].nome, &p[i].taxa20, &p[i].taxa21, &p[i].taxa22); //Atribuindo os dados do txt para variaveis aqui no programa
+		fscanf(arqEnt, "%d %f", &p[i].ano, &p[i].indice); //Atribuindo os dados do txt para variaveis aqui no programa
 		
 		//Calculando meu indice
-		p[i].indice = p[i].taxa20 + p[i].taxa21 + p[i].taxa22; 
+	//	p[i].indice = p[i].taxa20 + p[i].taxa21 + p[i].taxa22; 
 		
 	}//fim for
 } 
-/* 							fim da funcao inicializaVetor								 */
-/*--------------------------------------------------------------------------------------*/
+ 						//	fim da funcao inicializaVetor								 
+/*/--------------------------------------------------------------------------------------/*/
 
 
-/*--------------------------------------------------------------------------------------*/
-/* 						funcao que imprime o vetor de struct 							*/
+/* /--------------------------------------------------------------------------------------/*/
+//						funcao que imprime o vetor de struct 							
 void imprime(Pib *p){
 	
 	int i;
@@ -77,18 +71,18 @@ void imprime(Pib *p){
 	printf("---------------------------------------------------------------------\n");
 	printf("\t\t Dados sendo exibidos...\n");
 	printf("---------------------------------------------------------------------\n\n");
-	printf("Sigla:\t 2020:\t 2021:\t 2022:\t Indice:\n\n");	
+	printf("ANO:\t INDICE:\n\n");	
 	
 	for(i=0; i<TAM; i++){
-		printf(" %s \t %.1f \t %.1f \t %.1f \t %.1f\n\n\n", p[i].nome, p[i].taxa20, p[i].taxa21, p[i].taxa22, p[i].indice);
+		printf(" %d \t %.1f\n\n\n", p[i].ano, p[i].indice);
 	}
 }
-/*						fim da funcao que imprime o vetor de struct 					*/
-/*--------------------------------------------------------------------------------------*/
+		//				fim da funcao que imprime o vetor de struct 					
+/*/--------------------------------------------------------------------------------------/*/
 
 
-/*--------------------------------------------------------------------------------------*/
-/* 						funcao que ordena usando o metodo QuickSort 					*/
+/*/--------------------------------------------------------------------------------------/*/
+ 		//				funcao que ordena usando o metodo QuickSort 					
 
 void ordena(Pib *vetor, int esquerda, int direita){
 	
@@ -130,13 +124,13 @@ void ordena(Pib *vetor, int esquerda, int direita){
 		ordena(vetor, i, direita);
 	}
 }
-/* 					fim da funcao que ordena usando o metodo QuickSort					 */
-/*--------------------------------------------------------------------------------------*/
+		//			fim da funcao que ordena usando o metodo QuickSort					
+/* /--------------------------------------------------------------------------------------/ */
 
 
-/* ************************************************** */
-/* **** main - arquivo de utilização do usuario  **** */
-/* ************************************************** */
+/* ****************** */
+/* ** main - arquivo de utilização do usuario  ** */
+/* ****************** */
 
 //#include <stdio.h>
 //#include "operacoes.c"
@@ -150,7 +144,7 @@ int main () {
     imprime(&dadosPib[TAM]); //imprimindo o vetor de Struct
     
     printf("---------------------------------------------------------------------\n");
-	printf("\t\t Dados ordenados utilizando QuickSort:\n");
+	  printf("\t\t Dados ordenados utilizando QuickSort:\n");
     ordena(&dadosPib[TAM], 0, TAM-1);//ordenando usando o QuickSort, de acordo com o indice
 
 	imprime(&dadosPib[TAM]); //imprimindo o vetor de Struct após a ordenação
@@ -158,8 +152,3 @@ int main () {
     return 0;
 
 } /* fim da funcao main */
-
-
-
-
-
