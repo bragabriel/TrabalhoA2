@@ -22,7 +22,7 @@ void ordena(Pib *ponteiro, int esq, int dir); //ordena o vetor de struct
 
 
 /* ************** */
-/* ** operaÁıes - arquivo operacoes.c  ** */
+/* ** opera√ß√µes - arquivo operacoes.c  ** */
 /* ************** */
 //#include <stdio.h>
 //#include <stdlib.h>
@@ -93,8 +93,8 @@ void ordena(Pib *vetor, int esquerda, int direita){
 	i = esquerda;
 	j = direita;
 	
-	//Se os dados j· est„o um pouco ordenados:
-	//Eh melhor comeÁar do meio.
+	//Se os dados j√° est√£o um pouco ordenados:
+	//Eh melhor come√ßar do meio.
 	pivo = (esquerda + direita) / 2 ; //usando indice do meio como pivo
 	
 
@@ -129,7 +129,7 @@ void ordena(Pib *vetor, int esquerda, int direita){
 
 
 /* ****************** */
-/* ** main - arquivo de utilizaÁ„o do usuario  ** */
+/* ** main - arquivo de utiliza√ß√£o do usuario  ** */
 /* ****************** */
 
 //#include <stdio.h>
@@ -137,7 +137,7 @@ void ordena(Pib *vetor, int esquerda, int direita){
 
 int main () {
 
-	Pib dadosPib[TAM]; //dadosPib È um vetor do tipo Pib
+	Pib dadosPib[TAM]; //dadosPib √© um vetor do tipo Pib
 
     inicializaVetor(&dadosPib[TAM]); //inicializando o vetor de Struct, e recebendo os valores do txt
     
@@ -147,7 +147,7 @@ int main () {
 	  printf("\t\t Dados ordenados utilizando QuickSort:\n");
     ordena(&dadosPib[TAM], 0, TAM-1);//ordenando usando o QuickSort, de acordo com o indice
 
-	imprime(&dadosPib[TAM]); //imprimindo o vetor de Struct apÛs a ordenaÁ„o
+	imprime(&dadosPib[TAM]); //imprimindo o vetor de Struct ap√≥s a ordena√ß√£o
     
     return 0;
 
