@@ -4,10 +4,10 @@
 //#include "operacoes.c"
 
 
-#define TAM 50
-/* ************* */
-/* ** header - arquivo header.h  ** */
-/* ************* */
+#define TAM 49
+/* ***** */
+/* header - arquivo header.h */
+/* ***** */
 
 /* Struct principal */
 	typedef struct _pib{
@@ -21,16 +21,19 @@ void imprime(Pib *ponteiro); //imprime o vetor de struct
 void ordena(Pib *ponteiro, int esq, int dir); //ordena o vetor de struct
 
 
-/* ************** */
-/* ** operaÃ§Ãµes - arquivo operacoes.c  ** */
-/* ************** */
+
+/* ****** */
+/* operações - arquivo operacoes.c */
+/* ****** */
 //#include <stdio.h>
 //#include <stdlib.h>
 //#include "header.h"
 //#define TAM 23
 
-/* /--------------------------------------------------------------------------------------/*/
-//								funcao que inicializa o Vetor 							
+
+/*------------------------------------------------*/
+/*			Funcao - Inicializa o Vetor 		  */
+					
 void inicializaVetor(Pib *p){
 			// *p = ponteiro para dadosPib
     
@@ -51,18 +54,16 @@ void inicializaVetor(Pib *p){
 		
 		//Lendo arquivos do txt
 		fscanf(arqEnt, "%d %f", &p[i].ano, &p[i].indice); //Atribuindo os dados do txt para variaveis aqui no programa
-		
-		//Calculando meu indice
-	//	p[i].indice = p[i].taxa20 + p[i].taxa21 + p[i].taxa22; 
-		
+				
 	}//fim for
 } 
- 						//	fim da funcao inicializaVetor								 
-/*/--------------------------------------------------------------------------------------/*/
+/*		Fim da Funcao - Inicializa o Vetor 	   */
+/*---------------------------------------------*/
 
 
-/* /--------------------------------------------------------------------------------------/*/
-//						funcao que imprime o vetor de struct 							
+
+/*-------------------------------------------*/
+/*		Funcao - imprime o Vetor de Struct 	*/		
 void imprime(Pib *p){
 	
 	int i;
@@ -77,12 +78,13 @@ void imprime(Pib *p){
 		printf(" %d \t %.1f\n\n\n", p[i].ano, p[i].indice);
 	}
 }
-		//				fim da funcao que imprime o vetor de struct 					
-/*/--------------------------------------------------------------------------------------/*/
+/*		Fim da Funcao - imprime o Vetor de Struct		 */
+/* ------------------------------------------------------*/
 
 
-/*/--------------------------------------------------------------------------------------/*/
- 		//				funcao que ordena usando o metodo QuickSort 					
+
+/*-----------------------------------------*/
+/*		Funcao - Ordena com QuickSort	   */				
 
 void ordena(Pib *vetor, int esquerda, int direita){
 	
@@ -93,8 +95,8 @@ void ordena(Pib *vetor, int esquerda, int direita){
 	i = esquerda;
 	j = direita;
 	
-	//Se os dados jÃ¡ estÃ£o um pouco ordenados:
-	//Eh melhor comeÃ§ar do meio.
+	//Se os dados já estão um pouco ordenados:
+	//Eh melhor começar do meio.
 	pivo = (esquerda + direita) / 2 ; //usando indice do meio como pivo
 	
 
@@ -124,31 +126,70 @@ void ordena(Pib *vetor, int esquerda, int direita){
 		ordena(vetor, i, direita);
 	}
 }
-		//			fim da funcao que ordena usando o metodo QuickSort					
-/* /--------------------------------------------------------------------------------------/ */
+/*		Fim da Funcao - Ordena com QuickSort		 */
+/*---------------------------------------------------*/
 
 
-/* ****************** */
-/* ** main - arquivo de utilizaÃ§Ã£o do usuario  ** */
-/* ****************** */
+
+/*-----------------------------------------*/
+/*			Funcao - Busca Binaria	      */	
+
+int buscaBinaria(Pib *dadosPib, int inicio, int fim, int busca) {
+  
+	int i, meio;
+	
+	meio = (int)(inicio+fim)/2;
+	
+	if(dadosPib[meio].ano == busca)
+		return meio;
+	
+	if (inicio >= fim) 
+		return -1;
+	
+	if(busca < dadosPib[meio].ano)
+		buscaBinaria(dadosPib, inicio, meio-1, busca);
+	
+	if (busca > dadosPib[meio].ano)
+		buscaBinaria(dadosPib, meio+1, fim, busca);
+}
+/*	    	Fim da Funcao - Busca Binaria  		 */
+/*-----------------------------------------------*/
+
+
+
+/*-----------------------------------------------*/
+/* * main - arquivo de utilização do usuario  * */
 
 //#include <stdio.h>
 //#include "operacoes.c"
 
-int main () {
+int main (){
 
-	Pib dadosPib[TAM]; //dadosPib Ã© um vetor do tipo Pib
+  int anoPesq, anoPesquisado;
+	
+	Pib dadosPib[TAM]; //dadosPib é um vetor do tipo Pib
 
-    inicializaVetor(&dadosPib[TAM]); //inicializando o vetor de Struct, e recebendo os valores do txt
+    inicializaVetor(dadosPib); //inicializando o vetor de Struct, e recebendo os valores do txt
     
-    imprime(&dadosPib[TAM]); //imprimindo o vetor de Struct
+    imprime(dadosPib); //imprimindo o vetor de Struct
     
     printf("---------------------------------------------------------------------\n");
-	  printf("\t\t Dados ordenados utilizando QuickSort:\n");
-    ordena(&dadosPib[TAM], 0, TAM-1);//ordenando usando o QuickSort, de acordo com o indice
+	printf("\t\t Dados ordenados utilizando QuickSort:\n");
+    ordena(dadosPib, 0, TAM-1);//ordenando usando o QuickSort, de acordo com o indice
 
-	imprime(&dadosPib[TAM]); //imprimindo o vetor de Struct apÃ³s a ordenaÃ§Ã£o
+	imprime(dadosPib); //imprimindo o vetor de Struct após a ordenação
+
+	printf("Informe o ano para pesquisar o PIB: ");
+	scanf("%d", &anoPesq);
+
+	anoPesquisado = buscaBinaria(dadosPib, 0, TAM-1, anoPesq);
+
+	if(anoPesquisado == -1)
+		printf("Nao possuimos o dado desse ano.");
+	else
+		printf("Em %d, o PIB brasileiro foi no valor de: %d\n", dadosPib[anoPesquisado].ano, dadosPib[anoPesquisado].indice);
     
     return 0;
-
-} /* fim da funcao main */
+}
+/*	    	Fim da Funcao - Main  		 */
+/*---------------------------------------*/
