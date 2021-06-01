@@ -69,9 +69,9 @@ void imprime(Pib *p){
 	int i;
 
 	//Exibindo os dados
-	printf("---------------------------------------------------------------------\n");
-	printf("\t\t Dados sendo exibidos...\n");
-	printf("---------------------------------------------------------------------\n\n");
+	printf("-----------------------------------------------------\n");
+	printf("\t\tDados sendo exibidos...\n");
+	printf("------------------------------------------------------\n\n");
 	printf("ANO:\t INDICE:\n\n");	
 	
 	for(i=0; i<TAM; i++){
@@ -99,13 +99,12 @@ void ordena(Pib *vetor, int esquerda, int direita){
 	//Eh melhor começar do meio.
 	pivo = (esquerda + direita) / 2 ; //usando indice do meio como pivo
 	
-
 	while(i <= j){
-		while(vetor[i].indice < vetor[pivo].indice && i < direita){
+		while(vetor[i].ano < vetor[pivo].ano && i < direita){
 			i++;
 		}
 		
-		while(vetor[j].indice > vetor[pivo].indice && j > esquerda){
+		while(vetor[j].ano > vetor[pivo].ano && j > esquerda){
 			j--;
 		}
 		
@@ -138,19 +137,20 @@ int buscaBinaria(Pib *dadosPib, int inicio, int fim, int busca) {
   
 	int i, meio;
 	
-	meio = (int)(inicio+fim)/2;
+	meio = (int) (inicio+fim)/2;
 	
 	if(dadosPib[meio].ano == busca)
-		return meio;
+	return meio;
 	
-	if (inicio >= fim) 
-		return -1;
+	if(inicio >= fim)
+	return -1; //representa que não encontrou o ANO buscado na estrutura
 	
-	if(busca < dadosPib[meio].ano)
+	if(busca < dadosPib[meio].ano){	
 		buscaBinaria(dadosPib, inicio, meio-1, busca);
-	
-	if (busca > dadosPib[meio].ano)
+	}
+	else{
 		buscaBinaria(dadosPib, meio+1, fim, busca);
+	}
 }
 /*	    	Fim da Funcao - Busca Binaria  		 */
 /*-----------------------------------------------*/
@@ -173,8 +173,8 @@ int main (){
     
     imprime(dadosPib); //imprimindo o vetor de Struct
     
-    printf("---------------------------------------------------------------------\n");
-	printf("\t\t Dados ordenados utilizando QuickSort:\n");
+    printf("------------------------------------------------------\n");
+	printf("\t Dados ordenados utilizando QuickSort:\n");
     ordena(dadosPib, 0, TAM-1);//ordenando usando o QuickSort, de acordo com o indice
 
 	imprime(dadosPib); //imprimindo o vetor de Struct após a ordenação
@@ -184,10 +184,12 @@ int main (){
 
 	anoPesquisado = buscaBinaria(dadosPib, 0, TAM-1, anoPesq);
 
-	if(anoPesquisado == -1)
-		printf("Nao possuimos o dado desse ano.");
-	else
-		printf("Em %d, o PIB brasileiro foi no valor de: %d\n", dadosPib[anoPesquisado].ano, dadosPib[anoPesquisado].indice);
+	if(anoPesquisado == -1){
+		printf("\nNao possuimos o dado desse ano.");
+	}
+	else{
+		printf("\nEm %d, o PIB brasileiro foi no valor de: %.2f\n", dadosPib[anoPesquisado].ano, dadosPib[anoPesquisado].indice);
+	}
     
     return 0;
 }
