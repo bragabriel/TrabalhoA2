@@ -6,12 +6,12 @@ O que já fizemos: <br>
 ✅ Algoritmos de implementação <br>
 ✅ Desenvolvido em linguagem C <br>
 ✅ economia.txt
+✅ Busca binária/hashing <br>
 <br> <br>
 Afazeres: <br>
 ❌ leiame.txt (está incompleto) <br>
 ❌ TAD <br>
-❌ Como executar o programa <br>
-❌ Busca binária/hashing <br>
+❌ Como executar o programa <br> 
 ❌ Mudar o nome desse arquivo para leiame.txt, conforme solicitação do Sérgio <br>
  <br> <br>
 Bônus: <br>
