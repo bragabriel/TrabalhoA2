@@ -5,7 +5,7 @@ O que já fizemos: <br>
 ✅ Struct <br>
 ✅ Algoritmos de implementação <br>
 ✅ Desenvolvido em linguagem C <br>
-✅ economia.txt
+✅ economia.txt <br>
 ✅ Busca binária/hashing <br>
 <br> <br>
 Afazeres: <br>
