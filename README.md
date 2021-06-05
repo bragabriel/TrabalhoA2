@@ -7,10 +7,10 @@ O que já fizemos: <br>
 ✅ Desenvolvido em linguagem C <br>
 ✅ economia.txt <br>
 ✅ Busca binária/hashing <br>
+✅ TAD <br>
 <br> <br>
 Afazeres: <br>
 ❌ leiame.txt (está incompleto) <br>
-❌ TAD <br>
 ❌ Como executar o programa <br> 
 ❌ Mudar o nome desse arquivo para leiame.txt, conforme solicitação do Sérgio <br>
  <br> <br>
