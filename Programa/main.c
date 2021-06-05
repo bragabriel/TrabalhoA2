@@ -7,13 +7,21 @@
 
 int main (){
 
-  int anoPesq, anoPesquisado;
-	
-	Pib dadosPib[TAM]; //dadosPib é um vetor do tipo Pib
+  	int anoPesq, anoPesquisado, i;
+  
+    Pib *inicio, *aux;
 
-    inicializaVetor(dadosPib); //inicializando o vetor de Struct, e recebendo os valores do txt
+    inicializaLista(&inicio); //inicializando a LISTA
     
-    imprime(dadosPib); //imprimindo o vetor de Struct
+    Pib dadosPib[TAM]; //dadosPib é um vetor do tipo Pib
+
+    inicializaVetor(dadosPib); //inicializando o VETOR de Struct, e recebendo os valores do txt
+    
+	for(i=0; i<TAM; i++){
+   	 	insereInicio(&inicio, dadosPib[i].ano); //Inserindo os dados na LISTA (passando do vetor para a lista)
+	}
+	
+	imprimeLista(inicio);
     
     printf("------------------------------------------------------\n");
 	printf("\t Dados ordenados utilizando QuickSort:\n");

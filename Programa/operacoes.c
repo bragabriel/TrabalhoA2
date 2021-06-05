@@ -6,9 +6,9 @@
 #include <stdlib.h>
 #include "header.h"
 
+
 /*------------------------------------------------*/
-/*			Funcao - Inicializa o Vetor 		  */
-					
+/*			Funcao - Inicializa o Vetor 		  */	
 void inicializaVetor(Pib *p){
 			// *p = ponteiro para dadosPib
     
@@ -60,7 +60,6 @@ void imprime(Pib *p){
 
 /*-----------------------------------------*/
 /*		Funcao - Ordena com QuickSort	   */				
-
 void ordena(Pib *vetor, int esquerda, int direita){
 	
 	int i, j;
@@ -107,7 +106,6 @@ void ordena(Pib *vetor, int esquerda, int direita){
 
 /*-----------------------------------------*/
 /*			Funcao - Busca Binaria	      */	
-
 int buscaBinaria(Pib *dadosPib, int inicio, int fim, int busca) {
   
 	int i, meio;
@@ -129,3 +127,83 @@ int buscaBinaria(Pib *dadosPib, int inicio, int fim, int busca) {
 }
 /*	    	Fim da Funcao - Busca Binaria  		 */
 /*-----------------------------------------------*/
+
+
+
+/*--------------------------------------*/
+/*		Funcao - inicializa a LISTA 	*/	
+void inicializaLista (Pib **lista) {
+
+    *lista = NULL;
+
+}
+/*		Fim da Funcao - inicializa a LISTA		 */
+/*-----------------------------------------------*/
+
+
+
+/*---------------------------------------------------*/
+/*		Funcao - verifica se a LISTA esta vazia 	*/	
+int listaVazia (Pib *lista) {
+
+    if (lista == NULL)
+        return 1;
+
+    return 0;
+
+}
+/*		Fim da Funcao - verifica se a LISTA esta vazia		 */
+/*-----------------------------------------------------------*/
+
+
+
+/*------------------------------------------------------*/
+/*		Funcao - insere elemento no inicio da LISTA 	*/	
+void insereInicio (Pib **lista, int ano) {
+    
+    Pib *novo;
+        
+    /* cria o novo noh a ser inserido na lista */
+    novo = (Pib*) malloc (sizeof(Pib));
+    novo->ano = ano;
+
+    /* se a lista estiver vazia, novo noh aponta para NULL */
+    if (listaVazia(*lista))
+        novo->proximo = NULL;
+
+    /* caso contrario, novo noh aponta para o inicio da lista */
+    else
+        novo->proximo = *lista;
+
+    /* novo noh passa a ser o inicio da lista */
+    *lista = novo;
+
+}
+/*		Fim da Funcao - insere elemento no inicio da LISTA		 */
+/*---------------------------------------------------------------*/
+
+
+
+/*----------------------------------*/
+/*		Funcao - imprime a LISTA 	*/	
+void imprimeLista(Pib *lista){  //*lista = inicio
+	
+	Pib *atual = lista; //ponteiro auxiliar para andar na lista
+	
+	if(listaVazia(lista)){ 
+		printf("A lista esta vazia!\n");
+		return;
+	}
+	
+	printf("-----------------------------------------------------\n");
+	printf("\t\tLISTA sendo exibida...\n");
+	printf("------------------------------------------------------\n\n");
+	printf("Lista: [ ");
+	while(atual != NULL){
+		printf("%d ", atual->ano);
+		atual = atual->proximo;
+	}	
+	printf("]\n\n\n");
+}
+/*		Fim da Funcao - imprime a LISTA		 */
+/*-------------------------------------------*/
