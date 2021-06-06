@@ -40,3 +40,6 @@ Para a execução do projeto com o tipo abstrato de dados, é necessário estar 
 pasta, já que existe uma conversação entre esses arquivos. 
 
 Já se você preferir trabalhar com um único arquivo de códigos, você precisa estar com o arquivo principal.c junto ao economia.txt, que é nossa entrada de dados.
+
+
+
