@@ -44,3 +44,6 @@ Para a execução do projeto com o tipo abstrato de dados, é necessário estar 
 
 Já se você preferir trabalhar com um único arquivo de códigos, você precisa estar com o arquivo principal.c junto ao economia.txt, que é nossa entrada de dados.
 
+<br>
+Nossa fonte de dados: https://infograficos.gazetadopovo.com.br/economia/pib-do-brasil/
+
