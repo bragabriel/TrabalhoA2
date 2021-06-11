@@ -1,5 +1,5 @@
 /* ============================ */
-/* operações - arquivo operacoes.c */
+/* operaï¿½ï¿½es - arquivo operacoes.c */
 /* ============================ */
 
 #include <stdio.h>
@@ -28,8 +28,8 @@ void inicializaVetor(Pib *p){
 	for(i=0; i<TAM; i++){
 		
 		//Lendo arquivos do txt
-		fscanf(arqEnt, "%d %f", &p[i].ano, &p[i].indice); //Atribuindo os dados do txt para variaveis aqui no programa
-				
+		
+		fscanf(arqEnt,"%d %f",&p[i].ano, &p[i].indice);	//Atribuindo os dados do txt para variaveis aqui no programa
 	}//fim for
 } 
 /*		Fim da Funcao - Inicializa o Vetor 	   */
@@ -69,8 +69,8 @@ void ordena(Pib *vetor, int esquerda, int direita){
 	i = esquerda;
 	j = direita;
 	
-	//Se os dados já estão um pouco ordenados:
-	//Eh melhor começar do meio.
+	//Se os dados jï¿½ estï¿½o um pouco ordenados:
+	//Eh melhor comeï¿½ar do meio.
 	pivo = (esquerda + direita) / 2 ; //usando indice do meio como pivo
 	
 	while(i <= j){
@@ -116,7 +116,7 @@ int buscaBinaria(Pib *dadosPib, int inicio, int fim, int busca) {
 	return meio;
 	
 	if(inicio >= fim)
-	return -1; //representa que não encontrou o ANO buscado na estrutura
+	return -1; //representa que nï¿½o encontrou o ANO buscado na estrutura
 	
 	if(busca < dadosPib[meio].ano){	
 		buscaBinaria(dadosPib, inicio, meio-1, busca);
