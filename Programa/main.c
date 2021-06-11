@@ -25,7 +25,7 @@ int main (){
     
     printf("------------------------------------------------------\n");
 	printf("\t Dados ordenados utilizando o metodo: 'ShellSort':\n");
-    ordena(dadosPib, TAM);//ordenando usando o ShellSort, de acordo com o ANO
+    ordenaAno(dadosPib, TAM);//ordenando usando o ShellSort, de acordo com o ANO
 
 	imprime(dadosPib); //imprimindo o vetor de Struct após a ordenação
 
@@ -58,6 +58,10 @@ int main (){
 		scanf("%d", &op);
 		
 	} while (op == 1); //Fim 'do_while'
+	
+	ordenaPib(dadosPib, TAM);
+	relatorio(dadosPib);
+	
     
     return 0;
 }

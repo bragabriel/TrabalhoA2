@@ -55,34 +55,48 @@ void imprime(Pib *p){
 /*		Fim da Funcao - imprime o Vetor de Struct		 */
 /* ------------------------------------------------------*/
 
-/*-----------------------------------------*/
-/*			Funcao - Busca Binaria	      */	
-int buscaBinaria(Pib *dadosPib, int inicio, int fim, int busca) {
-  
-	int i, meio;
+
+
+/*-------------------------------------------*/
+/*		Funcao - imprime Relatorio	*/
+void relatorio(Pib *p){
 	
-	meio = (int) (inicio+fim)/2;
+	int i;
+
+	system("cls");
 	
-	if(dadosPib[meio].ano == busca)
-	return meio;
+	printf("\n\nTESTE HERE:\n\n");
+	printf("%f %d\n",  p[49].indice, p[49].ano);
+	printf("%f %d\n\n",  p[39].indice, p[39].ano);
+
+	//Exibindo os dados
+	printf("\n");
+	printf("-----------------------------------------------------\n");
+	printf("\t\t10 MAIORES PIB'S E SEUS ANOS:\n");
+	printf("------------------------------------------------------\n\n");
+	printf("\t\tINDICE: \tANO:\n\n");	
 	
-	if(inicio >= fim)
-	return -1; //representa que não encontrou o ANO buscado na estrutura
-	
-	if(busca < dadosPib[meio].ano){	
-		buscaBinaria(dadosPib, inicio, meio-1, busca);
+	for(i=49; i>=40; i--){
+		printf("\t\t%.2f \t\t %.d\n\n\n", p[i].indice, p[i].ano);
 	}
-	else{
-		buscaBinaria(dadosPib, meio+1, fim, busca);
+	
+	printf("-----------------------------------------------------\n");
+	printf("\t\t10 MENORES PIB'S E SEUS ANOS:\n");
+	printf("------------------------------------------------------\n\n");
+	printf("\t\tINDICE: \tANO:\n\n");	
+	
+	for(i=0; i<=9; i++){
+		printf("\t\t%.2f \t\t %.d\n\n\n", p[i].indice, p[i].ano);
 	}
 }
-/*	    	Fim da Funcao - Busca Binaria  		 */
-/*-----------------------------------------------*/
+/*		Fim da Funcao - imprime Relatorio		 */
+/* ------------------------------------------------------*/
+
 
 
 /*-----------------------------------------*/
-/*		Funcao - Ordena com ShellSort	   */				
-void ordena(Pib *vetor, int N){ 
+/*		Funcao - Ordena ANO com ShellSort	   */				
+void ordenaAno(Pib *vetor, int N){ 
 
  int k, i, j;
  Pib aux;
@@ -102,7 +116,34 @@ void ordena(Pib *vetor, int N){
 	}
  }
 }
-/*		Fim da Funcao - Ordena com ShellSort		 */
+/*		Fim da Funcao - Ordena ANO com ShellSort		 */
+/*---------------------------------------------------*/
+
+
+
+/*-----------------------------------------*/
+/*		Funcao - Ordena PIB com ShellSort	   */				
+void ordenaPib(Pib *vetor, int N){ 
+
+ int k, i, j;
+ Pib aux;
+ 
+ for(k=0; k<N; k++){
+ 	
+ 	for(i=k; i<N; i++){
+ 		
+ 		aux = vetor[i];
+ 		
+ 		for(j=i-k; j>=0 && vetor[j].indice > aux.indice; j-=k){
+ 			
+ 			vetor[j+k] = vetor[j];
+		 }
+		 
+	vetor[j+k] = aux;
+	}
+ }
+}
+/*		Fim da Funcao - Ordena PIB com ShellSort		 */
 /*---------------------------------------------------*/
 
 

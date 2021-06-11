@@ -8,7 +8,7 @@
 #define LISTA_H
 /* estrutura do noh da lista */
 
-#define TAM 49
+#define TAM 50
 
 /* Struct principal */
 	typedef struct _pib{
@@ -20,7 +20,7 @@
 /* declaracoes das funcoes utilizando com o tipo de dado Pib: */
 void inicializaVetor(Pib *ponteiro); //Inicializa o vetor de struct e recebe os valores do txt
 void imprime(Pib *ponteiro); //imprime o vetor de struct
-void ordena(Pib *ponteiro, int tam); //ordena o vetor de struct
+void ordenaAno(Pib *ponteiro, int tam); //ordena o vetor de struct
 
 
 /* declaracoes das funcoes de lista */
