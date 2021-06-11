@@ -1,0 +1,45 @@
+Projeto de Estrutura de dados sobre a economia brasileira antes e durante o Corona Vírus: 
+
+O desenvolvimento desde os dados até a codificação do algoritmo, foi desenvolvido por:
+
+>  Carina Rodrigues 109715
+
+> Gabriel Braga da Silva 110080
+
+> Guilherme Iago dos Reis 109518
+
+> Hérica Cadoni 109413
+
+> Ikaro Bressan	99529
+
+> Juan Lopes 109252
+
+> Lucas Delfini Ribeiro 109309
+
+> Reinaldo Polesel Junior 80193
+
+
+
+Todos alunos do Professor Doutor Sergio Luis Antonello do curso de Sistemas de Informação pela Fundação Hermínio Ometto.
+
+Durante o período de entrega, esses foram os requisitos: 
+                                                 
+✅ Struct 
+✅ Algoritmos de implementação                                  
+✅ Desenvolvido em linguagem C                                  
+✅ economia.txt                                                 
+✅ Busca binária/hashing                                        
+✅ TAD                                                          
+✅ leiame.txt                                                   
+✅ Como executar o programa                                     
+✅ Utilizar lista, fila ou pilha(com alocação dinâmica de memória) 
+
+Você pode clonar nosso repositório a partir de https://github.com/bragabriel/TrabalhoA2
+
+Para a execução do projeto com o tipo abstrato de dados, é necessário estar com os arquivos main.c, header.h, operacoes.c e economia.txt todos juntos, em uma única
+pasta, já que existe uma conversação entre esses arquivos. 
+
+Já se você preferir trabalhar com um único arquivo de códigos, você precisa estar com o arquivo principal.c junto ao economia.txt, que é nossa entrada de dados.
+
+
+
