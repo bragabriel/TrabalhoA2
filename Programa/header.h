@@ -20,7 +20,7 @@
 /* declaracoes das funcoes utilizando com o tipo de dado Pib: */
 void inicializaVetor(Pib *ponteiro); //Inicializa o vetor de struct e recebe os valores do txt
 void imprime(Pib *ponteiro); //imprime o vetor de struct
-void ordena(Pib *ponteiro, int esq, int dir); //ordena o vetor de struct
+void ordena(Pib *ponteiro, int tam); //ordena o vetor de struct
 
 
 /* declaracoes das funcoes de lista */

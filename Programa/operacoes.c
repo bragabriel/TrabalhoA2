@@ -1,5 +1,5 @@
 /* ============================ */
-/* operaï¿½ï¿½es - arquivo operacoes.c */
+/* operações - arquivo operacoes.c */
 /* ============================ */
 
 #include <stdio.h>
@@ -28,8 +28,7 @@ void inicializaVetor(Pib *p){
 	for(i=0; i<TAM; i++){
 		
 		//Lendo arquivos do txt
-		
-		fscanf(arqEnt,"%d %f",&p[i].ano, &p[i].indice);	//Atribuindo os dados do txt para variaveis aqui no programa
+		fscanf(arqEnt,"%d %f", &p[i].ano, &p[i].indice);	//Atribuindo os dados do txt para variaveis aqui no programa
 	}//fim for
 } 
 /*		Fim da Funcao - Inicializa o Vetor 	   */
@@ -47,10 +46,10 @@ void imprime(Pib *p){
 	printf("-----------------------------------------------------\n");
 	printf("\t\tDados sendo exibidos...\n");
 	printf("------------------------------------------------------\n\n");
-	printf("ANO:\t INDICE:\n\n");	
+	printf("\t\tANO: \t\tINDICE:\n\n");	
 	
 	for(i=0; i<TAM; i++){
-		printf(" %d \t %.1f\n\n\n", p[i].ano, p[i].indice);
+		printf("\t\t%d \t\t%.2f\n\n\n", p[i].ano, p[i].indice);
 	}
 }
 /*		Fim da Funcao - imprime o Vetor de Struct		 */
@@ -58,48 +57,58 @@ void imprime(Pib *p){
 
 
 
-/*-----------------------------------------*/
-/*		Funcao - Ordena com QuickSort	   */				
-void ordena(Pib *vetor, int esquerda, int direita){
+/*-------------------------------------------*/
+/*		Funcao - imprime Relatorio	*/
+void relatorio(Pib *p){
 	
-	int i, j;
-	int pivo;
-	Pib aux;
+	int i;
+
+	//Exibindo os dados
+	printf("-----------------------------------------------------\n");
+	printf("\t\t10 MAIORES PIB'S E SEUS ANOS:\n");
+	printf("------------------------------------------------------\n\n");
+	printf("INDICE:\t ANO:\n\n");	
 	
-	i = esquerda;
-	j = direita;
-	
-	//Se os dados jï¿½ estï¿½o um pouco ordenados:
-	//Eh melhor comeï¿½ar do meio.
-	pivo = (esquerda + direita) / 2 ; //usando indice do meio como pivo
-	
-	while(i <= j){
-		while(vetor[i].ano < vetor[pivo].ano && i < direita){
-			i++;
-		}
-		
-		while(vetor[j].ano > vetor[pivo].ano && j > esquerda){
-			j--;
-		}
-		
-		if(i <= j){
-			aux = vetor[i];
-			vetor[i] = vetor[j];
-			vetor[j] = aux;	
-			i++;
-			j--;
-		}
+	for(i=49; i>37; i--){
+		printf(" %.2f \t %.d\n\n\n", p[i].indice, p[i].ano);
 	}
+	printf("-----------------------------------------------------\n");
+	printf("\t\t10 MENORES PIB'S E SEUS ANOS:\n");
+	printf("------------------------------------------------------\n\n");
+	printf("INDICE:\t ANO:\n\n");	
 	
-	if (j > esquerda){
-		ordena(vetor, esquerda, j);
-	}
-	
-	if(i < direita){
-		ordena(vetor, i, direita);
+	for(i=1; i<11; i++){
+		printf(" %.2f \t %.d\n\n\n", p[i].indice, p[i].ano);
 	}
 }
-/*		Fim da Funcao - Ordena com QuickSort		 */
+/*		Fim da Funcao - imprime Relatorio		 */
+/* ------------------------------------------------------*/
+
+
+
+/*-----------------------------------------*/
+/*		Funcao - Ordena com ShellSort	   */				
+void ordena(Pib *vetor, int N){ 
+
+ int k, i, j;
+ Pib aux;
+ 
+ for(k=0; k<N; k++){
+ 	
+ 	for(i=k; i<N; i++){
+ 		
+ 		aux = vetor[i];
+ 		
+ 		for(j=i-k; j>=0 && vetor[j].ano > aux.ano; j-=k){
+ 			
+ 			vetor[j+k] = vetor[j];
+		 }
+		 
+	vetor[j+k] = aux;
+	}
+ }
+}
+/*		Fim da Funcao - Ordena com ShellSort		 */
 /*---------------------------------------------------*/
 
 
@@ -116,7 +125,7 @@ int buscaBinaria(Pib *dadosPib, int inicio, int fim, int busca) {
 	return meio;
 	
 	if(inicio >= fim)
-	return -1; //representa que nï¿½o encontrou o ANO buscado na estrutura
+	return -1; //representa que não encontrou o ANO buscado na estrutura
 	
 	if(busca < dadosPib[meio].ano){	
 		buscaBinaria(dadosPib, inicio, meio-1, busca);

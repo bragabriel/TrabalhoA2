@@ -1,5 +1,5 @@
 /* ================================== */
-/* main - arquivo de utilização do usuario */
+/* 		main 		 */
 /* ================================== */
 
 #include <stdio.h>
@@ -7,7 +7,7 @@
 
 int main (){
 
-  	int anoPesq, anoPesquisado, i;
+  	int anoPesq, anoPesquisado, i, op;
   
     Pib *inicio, *aux;
 
@@ -24,22 +24,40 @@ int main (){
 	imprimeLista(inicio);
     
     printf("------------------------------------------------------\n");
-	printf("\t Dados ordenados utilizando QuickSort:\n");
-    ordena(dadosPib, 0, TAM-1);//ordenando usando o QuickSort, de acordo com o indice
+	printf("\t Dados ordenados utilizando o metodo: 'ShellSort':\n");
+    ordena(dadosPib, TAM);//ordenando usando o ShellSort, de acordo com o ANO
 
 	imprime(dadosPib); //imprimindo o vetor de Struct após a ordenação
 
-	printf("Informe o ano para pesquisar o PIB: ");
-	scanf("%d", &anoPesq);
+	do{
+		//Alterando a cor do plano de fundo e letra para:
+		//Plano de fundo: 3(verde-agua) | Letra: F(branco)
+		system("color 3F");
+		
+		printf("\n");
+		printf("\tInforme o ano para pesquisar o PIB: ");
+		scanf("%d", &anoPesq); //Ano que será pesquisado na Busca Binária
 
-	anoPesquisado = buscaBinaria(dadosPib, 0, TAM-1, anoPesq);
+		anoPesquisado = buscaBinaria(dadosPib, 0, TAM-1, anoPesq); //Realizando a Busca Binária
 
-	if(anoPesquisado == -1){
-		printf("\nNao possuimos o dado desse ano.");
-	}
-	else{
-		printf("\nEm %d, o PIB brasileiro foi no valor de: %.2f\n", dadosPib[anoPesquisado].ano, dadosPib[anoPesquisado].indice);
-	}
+		//Limpando a tela, evitando assim o acúmulo de informações indesejadas. 
+		system("cls"); 
+
+		if(anoPesquisado == -1){
+			printf("\n\t -> Nao possuimos o dado desse ano. <- \n");		
+		}
+		else{
+			printf("\n\t -> Em %d, o PIB brasileiro foi no valor de: %.2f <-\n", dadosPib[anoPesquisado].ano, dadosPib[anoPesquisado].indice);
+		}
+		
+		printf("\n\n");
+		printf("\tVoce deseja pesquisar o dado de outro ano?\n");
+		printf("\t\tSe SIM, digite: 1\n");
+		printf("\t\tSe NAO, digite: 9\n");
+		printf("\tResposta: ");
+		scanf("%d", &op);
+		
+	} while (op == 1); //Fim 'do_while'
     
     return 0;
 }
