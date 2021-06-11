@@ -18,7 +18,7 @@
 /* declaracoes das funcoes utilizando com o tipo de dado Pib: */
 void inicializaVetor(Pib *ponteiro); //Inicializa o vetor de struct e recebe os valores do txt
 void imprime(Pib *ponteiro); //imprime o vetor de struct
-void ordena(Pib *ponteiro, int esq, int dir); //ordena o vetor de struct
+void ordena(Pib *ponteiro, int tam); //ordena o vetor de struct
 
 
 
@@ -78,7 +78,7 @@ void imprime(Pib *p){
 		printf(" %d \t %.1f\n\n\n", p[i].ano, p[i].indice);
 	}
 }
-void imprimeordpib(Pib *p){
+void relat(Pib *p){
 	
 	int i;
 
@@ -106,48 +106,31 @@ void imprimeordpib(Pib *p){
 
 
 /*-----------------------------------------*/
-/*		Funcao - Ordena com QuickSort	   */				
+/*		Funcao - Ordena com ShellSort	   */				
 
-void ordena(Pib *vetor, int esquerda, int direita){
-	
-	int i, j;
-	int pivo;
-	Pib aux;
-	
-	i = esquerda;
-	j = direita;
-	
-	//Se os dados já estão um pouco ordenados:
-	//Eh melhor começar do meio.
-	pivo = (esquerda + direita) / 2 ; //usando indice do meio como pivo
-	
-	while(i <= j){
-		while(vetor[i].ano < vetor[pivo].ano && i < direita){
-			i++;
-		}
-		
-		while(vetor[j].ano > vetor[pivo].ano && j > esquerda){
-			j--;
-		}
-		
-		if(i <= j){
-			aux = vetor[i];
-			vetor[i] = vetor[j];
-			vetor[j] = aux;	
-			i++;
-			j--;
-		}
+void ordena(Pib *vetor, int N){ 
+
+ int k, i, j;
+ Pib aux;
+ 
+ for(k=0; k<N; k++){
+ 	
+ 	for(i=k; i<N; i++){
+ 		
+ 		aux = vetor[i];
+ 		
+ 		for(j=i-k; j>=0 && vetor[j].ano > aux.ano; j-=k){
+ 			
+ 			vetor[j+k] = vetor[j];
+		 }
+		 
+	vetor[j+k] = aux;
 	}
-	
-	if (j > esquerda){
-		ordena(vetor, esquerda, j);
-	}
-	
-	if(i < direita){
-		ordena(vetor, i, direita);
-	}
+ }
+
 }
-/*		Fim da Funcao - Ordena com QuickSort		 */
+
+/*		Fim da Funcao - Ordena com ShellSort		 */
 /*---------------------------------------------------*/
 
 
@@ -156,7 +139,7 @@ void ordena(Pib *vetor, int esquerda, int direita){
 /*			Funcao - Busca Binaria	      */	
 
 int buscaBinaria(Pib *dadosPib, int inicio, int fim, int busca) {
-  
+	
 	int i, meio;
 	
 	meio = (int) (inicio+fim)/2;
@@ -164,8 +147,9 @@ int buscaBinaria(Pib *dadosPib, int inicio, int fim, int busca) {
 	if(dadosPib[meio].ano == busca)
 	return meio;
 	
+	
 	if(inicio >= fim)
-	return -1; //representa que não encontrou o ANO buscado na estrutura
+	return -1; //representa que n�o encontrou o ANO buscado na estrutura
 	
 	if(busca < dadosPib[meio].ano){	
 		buscaBinaria(dadosPib, inicio, meio-1, busca);
@@ -186,8 +170,8 @@ void ordenapib(Pib *vetor, int esquerda, int direita){
 	i = esquerda;
 	j = direita;
 	
-	//Se os dados já estão um pouco ordenados:
-	//Eh melhor começar do meio.
+	//Se os dados j� est�o um pouco ordenados:
+	//Eh melhor come�ar do meio.
 	pivo = (esquerda + direita) / 2 ; //usando indice do meio como pivo
 	
 	while(i <= j){
@@ -237,9 +221,11 @@ int main (){
     
     printf("------------------------------------------------------\n");
 	printf("\t Dados ordenados utilizando QuickSort:\n");
-    ordena(dadosPib, 0, TAM-1);//ordenando usando o QuickSort, de acordo com o indice
+    ordena(dadosPib, TAM);//ordenando usando o ShellSort, de acordo com o ANO
 
 	imprime(dadosPib); //imprimindo o vetor de Struct após a ordenação
+	
+	
 	printf("Informe o ano para pesquisar o PIB: ");
 	scanf("%d", &anoPesq);
 
@@ -252,8 +238,8 @@ int main (){
 		printf("\nEm %d, o PIB brasileiro foi no valor de: %.2f\n", dadosPib[anoPesquisado].ano, dadosPib[anoPesquisado].indice);
 	}
 	
-	ordenapib(dadosPib, 0, TAM-1);
-	imprimeordpib(dadosPib);
+	//ordenapib(dadosPib, 0, TAM-1);
+	//imprimeordpib(dadosPib);
 	
     
     return 0;
