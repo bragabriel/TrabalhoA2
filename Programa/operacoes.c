@@ -55,35 +55,29 @@ void imprime(Pib *p){
 /*		Fim da Funcao - imprime o Vetor de Struct		 */
 /* ------------------------------------------------------*/
 
-
-
-/*-------------------------------------------*/
-/*		Funcao - imprime Relatorio	*/
-void relatorio(Pib *p){
+/*-----------------------------------------*/
+/*			Funcao - Busca Binaria	      */	
+int buscaBinaria(Pib *dadosPib, int inicio, int fim, int busca) {
+  
+	int i, meio;
 	
-	int i;
-
-	//Exibindo os dados
-	printf("-----------------------------------------------------\n");
-	printf("\t\t10 MAIORES PIB'S E SEUS ANOS:\n");
-	printf("------------------------------------------------------\n\n");
-	printf("INDICE:\t ANO:\n\n");	
+	meio = (int) (inicio+fim)/2;
 	
-	for(i=49; i>37; i--){
-		printf(" %.2f \t %.d\n\n\n", p[i].indice, p[i].ano);
+	if(dadosPib[meio].ano == busca)
+	return meio;
+	
+	if(inicio >= fim)
+	return -1; //representa que não encontrou o ANO buscado na estrutura
+	
+	if(busca < dadosPib[meio].ano){	
+		buscaBinaria(dadosPib, inicio, meio-1, busca);
 	}
-	printf("-----------------------------------------------------\n");
-	printf("\t\t10 MENORES PIB'S E SEUS ANOS:\n");
-	printf("------------------------------------------------------\n\n");
-	printf("INDICE:\t ANO:\n\n");	
-	
-	for(i=1; i<11; i++){
-		printf(" %.2f \t %.d\n\n\n", p[i].indice, p[i].ano);
+	else{
+		buscaBinaria(dadosPib, meio+1, fim, busca);
 	}
 }
-/*		Fim da Funcao - imprime Relatorio		 */
-/* ------------------------------------------------------*/
-
+/*	    	Fim da Funcao - Busca Binaria  		 */
+/*-----------------------------------------------*/
 
 
 /*-----------------------------------------*/
