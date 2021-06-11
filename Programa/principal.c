@@ -4,7 +4,7 @@
 //#include "operacoes.c"
 
 
-#define TAM 49
+#define TAM 50
 /* ***** */
 /* header - arquivo header.h */
 /* ***** */
@@ -76,6 +76,28 @@ void imprime(Pib *p){
 	
 	for(i=0; i<TAM; i++){
 		printf(" %d \t %.1f\n\n\n", p[i].ano, p[i].indice);
+	}
+}
+void imprimeordpib(Pib *p){
+	
+	int i;
+
+	//Exibindo os dados
+	printf("-----------------------------------------------------\n");
+	printf("\t\t10 MAIORES PIB'S E SEUS ANOS:\n");
+	printf("------------------------------------------------------\n\n");
+	printf("INDICE:\t ANO:\n\n");	
+	
+	for(i=49; i>37; i--){
+		printf(" %.2f \t %.d\n\n\n", p[i].indice, p[i].ano);
+	}
+	printf("-----------------------------------------------------\n");
+	printf("\t\t10 MENORES PIB'S E SEUS ANOS:\n");
+	printf("------------------------------------------------------\n\n");
+	printf("INDICE:\t ANO:\n\n");	
+	
+	for(i=1; i<11; i++){
+		printf(" %.2f \t %.d\n\n\n", p[i].indice, p[i].ano);
 	}
 }
 /*		Fim da Funcao - imprime o Vetor de Struct		 */
@@ -155,6 +177,46 @@ int buscaBinaria(Pib *dadosPib, int inicio, int fim, int busca) {
 /*	    	Fim da Funcao - Busca Binaria  		 */
 /*-----------------------------------------------*/
 
+void ordenapib(Pib *vetor, int esquerda, int direita){
+	
+	int i, j;
+	int pivo;
+	Pib aux;
+	
+	i = esquerda;
+	j = direita;
+	
+	//Se os dados já estão um pouco ordenados:
+	//Eh melhor começar do meio.
+	pivo = (esquerda + direita) / 2 ; //usando indice do meio como pivo
+	
+	while(i <= j){
+		while(vetor[i].indice < vetor[pivo].indice && i < direita){
+			i++;
+		}
+		
+		while(vetor[j].indice > vetor[pivo].indice && j > esquerda){
+			j--;
+		}
+		
+		if(i <= j){
+			aux = vetor[i];
+			vetor[i] = vetor[j];
+			vetor[j] = aux;	
+			i++;
+			j--;
+		}
+	}
+	
+	if (j > esquerda){
+		ordenapib(vetor, esquerda, j);
+	}
+	
+	if(i < direita){
+		ordenapib(vetor, i, direita);
+	}
+}
+
 
 
 /*-----------------------------------------------*/
@@ -178,7 +240,6 @@ int main (){
     ordena(dadosPib, 0, TAM-1);//ordenando usando o QuickSort, de acordo com o indice
 
 	imprime(dadosPib); //imprimindo o vetor de Struct após a ordenação
-
 	printf("Informe o ano para pesquisar o PIB: ");
 	scanf("%d", &anoPesq);
 
@@ -190,6 +251,10 @@ int main (){
 	else{
 		printf("\nEm %d, o PIB brasileiro foi no valor de: %.2f\n", dadosPib[anoPesquisado].ano, dadosPib[anoPesquisado].indice);
 	}
+	
+	ordenapib(dadosPib, 0, TAM-1);
+	imprimeordpib(dadosPib);
+	
     
     return 0;
 }
