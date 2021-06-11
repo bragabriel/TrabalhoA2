@@ -87,6 +87,11 @@ void relatorio(Pib *p){
 	}
 	
 	printf("[----------------------------------------------------------------------]\n\n");
+	
+	printf("\t-----------------------------------------------------\n");
+	printf("\tFonte usada para a pesquisa: \n");
+	printf("\thttps://infograficos.gazetadopovo.com.br/economia/pib-do-brasil/\n");
+	printf("\t-----------------------------------------------------\n");
 }
 /*		Fim da Funcao - imprime Relatorio		 */
 /* ------------------------------------------------------*/
