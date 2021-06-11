@@ -43,13 +43,11 @@ void imprime(Pib *p){
 	int i;
 
 	//Exibindo os dados
-	printf("-----------------------------------------------------\n");
-	printf("\t\tDados sendo exibidos...\n");
-	printf("------------------------------------------------------\n\n");
+	printf("\t\tDados sendo exibidos...\n\n");
 	printf("\t\tANO: \t\tINDICE:\n\n");	
 	
 	for(i=0; i<TAM; i++){
-		printf("\t\t%d \t\t%.2f\n\n\n", p[i].ano, p[i].indice);
+		printf("\t\t%d \t\t%.2f\n\n", p[i].ano, p[i].indice);
 	}
 }
 /*		Fim da Funcao - imprime o Vetor de Struct		 */
@@ -63,31 +61,32 @@ void relatorio(Pib *p){
 	
 	int i;
 
+	//Limpando a tela, evitando assim o acúmulo de informações indesejadas. 
 	system("cls");
 	
-	printf("\n\nTESTE HERE:\n\n");
-	printf("%f %d\n",  p[49].indice, p[49].ano);
-	printf("%f %d\n\n",  p[39].indice, p[39].ano);
-
-	//Exibindo os dados
-	printf("\n");
-	printf("-----------------------------------------------------\n");
-	printf("\t\t10 MAIORES PIB'S E SEUS ANOS:\n");
-	printf("------------------------------------------------------\n\n");
-	printf("\t\tINDICE: \tANO:\n\n");	
+	//Alterando a cor do plano de fundo e letra para:
+	//Plano de fundo: 8(Cinza) | Letra: F(branco)
+	system("color 8F");
+	
+	//Exibindo o relatorio
+	printf("[----------------------------------------------------------------------]\n");
+	printf("\t Relatorio:\n\n");
+	printf("\t\t10 MAIORES PIB'S E SEUS ANOS:\n\n");
+	printf("\t\t\tINDICE: \t\tANO:\n\n");	
 	
 	for(i=49; i>=40; i--){
-		printf("\t\t%.2f \t\t %.d\n\n\n", p[i].indice, p[i].ano);
+		printf("\t\t\t%.2f \t\t\t %.d\n\n", p[i].indice, p[i].ano);
 	}
 	
-	printf("-----------------------------------------------------\n");
-	printf("\t\t10 MENORES PIB'S E SEUS ANOS:\n");
-	printf("------------------------------------------------------\n\n");
-	printf("\t\tINDICE: \tANO:\n\n");	
+	printf("\n");
+	printf("\t\t10 MENORES PIB'S E SEUS ANOS:\n\n");
+	printf("\t\t\tINDICE: \t\tANO:\n\n");	
 	
 	for(i=0; i<=9; i++){
-		printf("\t\t%.2f \t\t %.d\n\n\n", p[i].indice, p[i].ano);
+		printf("\t\t\t%.2f \t\t\t %.d\n\n", p[i].indice, p[i].ano);
 	}
+	
+	printf("[----------------------------------------------------------------------]\n\n");
 }
 /*		Fim da Funcao - imprime Relatorio		 */
 /* ------------------------------------------------------*/
@@ -239,15 +238,15 @@ void imprimeLista(Pib *lista){  //*lista = inicio
 		return;
 	}
 	
-	printf("-----------------------------------------------------\n");
+	printf("[------------------------------------------------------------]\n\n");
 	printf("\t\tLISTA sendo exibida...\n");
-	printf("------------------------------------------------------\n\n");
 	printf("Lista: [ ");
 	while(atual != NULL){
 		printf("%d ", atual->ano);
 		atual = atual->proximo;
 	}	
-	printf("]\n\n\n");
+	printf("]\n\n");
+	printf("[------------------------------------------------------------]\n\n\n");
 }
 /*		Fim da Funcao - imprime a LISTA		 */
 /*-------------------------------------------*/

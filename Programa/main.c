@@ -23,12 +23,15 @@ int main (){
 	
 	imprimeLista(inicio);
     
-    printf("------------------------------------------------------\n");
-	printf("\t Dados ordenados utilizando o metodo: 'ShellSort':\n");
+    printf("[------------------------------------------------------------]\n");
+	printf("\t Dados ordenados por: 'ANO'\n");
+	printf("\t utilizando o metodo: 'ShellSort'\n\n");
     ordenaAno(dadosPib, TAM);//ordenando usando o ShellSort, de acordo com o ANO
 
 	imprime(dadosPib); //imprimindo o vetor de Struct após a ordenação
 
+	printf("[------------------------------------------------------------]\n\n");
+	
 	do{
 		//Alterando a cor do plano de fundo e letra para:
 		//Plano de fundo: 3(verde-agua) | Letra: F(branco)
@@ -47,7 +50,7 @@ int main (){
 			printf("\n\t -> Nao possuimos o dado desse ano. <- \n");		
 		}
 		else{
-			printf("\n\t -> Em %d, o PIB brasileiro foi no valor de: %.2f <-\n", dadosPib[anoPesquisado].ano, dadosPib[anoPesquisado].indice);
+			printf("\n\t -> Em %d, o PIB brasileiro foi de: %.2f <-\n", dadosPib[anoPesquisado].ano, dadosPib[anoPesquisado].indice);
 		}
 		
 		printf("\n\n");
