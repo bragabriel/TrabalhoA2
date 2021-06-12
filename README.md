@@ -20,7 +20,7 @@ O desenvolvimento desde os dados até a codificação do algoritmo, foi desenvol
 
 
 
-Todos alunos do Professor Doutor <a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do;jsessionid=799D1635021AA484E7D05D69663C2520.buscatextual_">Sergio Luis Antonello</a>, do curso de Sistemas de Informação pela <a href="[FHO | Fundação Hermínio Ometto (uniararas.br)](http://www.uniararas.br/home.php)">Fundação Hermínio Ometto</a>.
+Todos alunos do Professor Doutor <a href="https://www.linkedin.com/in/s%C3%A9rgio-luis-antonello-1692b692/">Sergio Luis Antonello</a>, do curso de Sistemas de Informação pela <a href="[FHO | Fundação Hermínio Ometto (uniararas.br)](http://www.uniararas.br/home.php)">Fundação Hermínio Ometto</a>.
 
 
 
