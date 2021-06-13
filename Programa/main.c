@@ -62,8 +62,12 @@ int main (){
 		
 	} while (op == 1); //Fim 'do_while'
 	
+	relatorioTXTpt1(dadosPib);
+	
 	ordenaPib(dadosPib, TAM);
 	relatorio(dadosPib);
+	
+	relatorioTXTpt2(dadosPib);
 	
     
     return 0;

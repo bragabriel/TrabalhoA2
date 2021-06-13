@@ -92,8 +92,95 @@ void relatorio(Pib *p){
 	printf("\tFonte usada para a pesquisa: \n");
 	printf("\thttps://infograficos.gazetadopovo.com.br/economia/pib-do-brasil/\n");
 	printf("\t-----------------------------------------------------\n");
+	
 }
 /*		Fim da Funcao - imprime Relatorio		 */
+/* ------------------------------------------------------*/
+
+
+
+/*-------------------------------------------*/
+/*		Funcao - Gerando um relatório .txt	*/
+/* 		pt1: >> 50 dados ordenados <<	*/
+
+void relatorioTXTpt1(Pib *p){
+	
+	int i;
+	
+	//Abrindo arquivo txt
+	FILE *file;
+	file = fopen("Relatorio.txt", "w");
+	
+	//Nao existe o arquivo txt no pc
+	if(file == NULL){
+		printf("Nao foi possivel abrir o arquivo. \n");
+		getchar();
+		exit(0);
+	}
+	
+	//Exibindo no relatorio TODOS os dados ORDENADOS
+	fprintf(file, "[----------------------------------------------------------------------]\n");
+	fprintf(file, "\t Relatorio:\n\n\n");
+	fprintf(file, "\t Todos os dados ordenados por 'ano':\n\n");
+	fprintf(file, "\t\tANO: \t\tINDICE:\n\n");	
+	
+	for(i=0; i<TAM; i++){
+		fprintf(file, "\t\t%d \t\t%.2f\n\n", p[i].ano, p[i].indice);
+	}
+	
+	fclose(file);
+}
+/*		Fim da Funcao - Gerando um relatório .txt pt1	 */
+/* ------------------------------------------------------*/
+
+
+
+/*-------------------------------------------*/
+/*		Funcao - Gerando um relatório .txt	*/
+/* 		pt2: >> 10 maiores e 10 menores <<	*/
+
+void relatorioTXTpt2(Pib *p){
+	
+	int i;
+	
+	//Abrindo arquivo txt
+	FILE *file;
+	file = fopen("Relatorio.txt", "a");
+	
+	//Nao existe o arquivo txt no pc
+	if(file == NULL){
+		printf("Nao foi possivel abrir o arquivo. \n");
+		getchar();
+		exit(0);
+	}
+	
+	//Exibindo o relatorio dos 10 maiores e 10 menores no TXT
+	fprintf(file, "\n\n");
+	fprintf(file, "\t >>10 MAIORES PIB'S E SEUS ANOS:<<\n\n");
+	fprintf(file, "\t\tINDICE: \tANO:\n\n");	
+	
+	for(i=49; i>=40; i--){
+		fprintf(file, "\t\t%.2f \t\t %.d\n\n", p[i].indice, p[i].ano);
+	}
+	
+	fprintf(file, "\n\n");
+	fprintf(file, "\t >>10 MENORES PIB'S E SEUS ANOS:<<\n\n");
+	fprintf(file, "\t\tINDICE: \tANO:\n\n");	
+	
+	for(i=0; i<=9; i++){	
+		fprintf(file, "\t\t%.2f \t\t %.d\n\n", p[i].indice, p[i].ano);
+	}
+	
+	fprintf(file, "[----------------------------------------------------------------------]\n\n");
+	
+	fprintf(file, "\t-----------------------------------------------------\n");
+	fprintf(file, "\tFonte usada para a pesquisa: \n");
+	fprintf(file, "\thttps://infograficos.gazetadopovo.com.br/economia/pib-do-brasil/\n");
+	fprintf(file, "\t-----------------------------------------------------\n");
+	
+	fclose(file);
+}
+/*		Fim da Funcao - Gerando um relatório .txt pt2    */
 /* ------------------------------------------------------*/
 
 
