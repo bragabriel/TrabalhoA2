@@ -20,7 +20,7 @@ O desenvolvimento desde os dados até a codificação do algoritmo, foi desenvol
 
 
 
-Todos alunos do Professor Doutor <a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do;jsessionid=799D1635021AA484E7D05D69663C2520.buscatextual_">Sergio Luis Antonello</a>, do curso de Sistemas de Informação pela <a href="[FHO | Fundação Hermínio Ometto (uniararas.br)](http://www.uniararas.br/home.php)">Fundação Hermínio Ometto</a>.
+Todos alunos do Professor Doutor <a href="https://www.linkedin.com/in/s%C3%A9rgio-luis-antonello-1692b692/">Sergio Luis Antonello</a>, do curso de Sistemas de Informação pela <a href="[FHO | Fundação Hermínio Ometto (uniararas.br)](http://www.uniararas.br/home.php)">Fundação Hermínio Ometto</a>.
 
 
 
@@ -38,7 +38,7 @@ Durante o período de entrega, esses foram os requisitos:
 |    ✅     | Como executar o programa                                     |
 |    ✅     | Utilizar lista, fila ou pilha(com alocação dinâmica de memória) |
 
-Você pode clonar nosso repositório a partir <a href="[FHO | Fundação Hermínio Ometto (uniararas.br)][bragabriel/TrabalhoA2: Trabalho A2 - Estrutura de Dados (github.com)](https://github.com/bragabriel/TrabalhoA2)">deste link</a>.
+Você pode clonar nosso repositório a partir <a href="https://github.com/bragabriel/TrabalhoA2">deste link</a>.
 
 Para a execução do projeto com o tipo abstrato de dados, é necessário estar com os arquivos main.c, header.h, operacoes.c e economia.txt todos juntos, em uma única pasta, já que existe uma conversação entre esses arquivos.
 
