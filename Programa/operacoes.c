@@ -99,6 +99,86 @@ void relatorio(Pib *p){
 
 
 
+/*-----------------------------------------*/
+/*		Funcao - Ordena ANO com ShellSort	   */				
+void ordenaAno(Pib *vetor, int N){ 
+
+ int k, i, j;
+ Pib aux;
+ 
+ for(k=0; k<N; k++){
+ 	
+ 	for(i=k; i<N; i++){
+ 		
+ 		aux = vetor[i];
+ 		
+ 		for(j=i-k; j>=0 && vetor[j].ano > aux.ano; j-=k){
+ 			
+ 			vetor[j+k] = vetor[j];
+		 }
+		 
+	vetor[j+k] = aux;
+	}
+ }
+}
+/*		Fim da Funcao - Ordena ANO com ShellSort		 */
+/*---------------------------------------------------*/
+
+
+
+/*-----------------------------------------*/
+/*		Funcao - Ordena PIB com ShellSort	   */				
+void ordenaPib(Pib *vetor, int N){ 
+
+ int k, i, j;
+ Pib aux;
+ 
+ for(k=0; k<N; k++){
+ 	
+ 	for(i=k; i<N; i++){
+ 		
+ 		aux = vetor[i];
+ 		
+ 		for(j=i-k; j>=0 && vetor[j].indice > aux.indice; j-=k){
+ 			
+ 			vetor[j+k] = vetor[j];
+		 }
+		 
+	vetor[j+k] = aux;
+	}
+ }
+}
+/*		Fim da Funcao - Ordena PIB com ShellSort		 */
+/*---------------------------------------------------*/
+
+
+
+/*-----------------------------------------*/
+/*			Funcao - Busca Binaria	      */	
+int buscaBinaria(Pib *dadosPib, int inicio, int fim, int busca) {
+  
+	int i, meio;
+	
+	meio = (int) (inicio+fim)/2;
+	
+	if(dadosPib[meio].ano == busca)
+	return meio;
+	
+	if(inicio >= fim)
+	return -1; //representa que não encontrou o ANO buscado na estrutura
+	
+	if(busca < dadosPib[meio].ano){	
+		buscaBinaria(dadosPib, inicio, meio-1, busca);
+	}
+	else{
+		buscaBinaria(dadosPib, meio+1, fim, busca);
+	}
+}
+/*	    	Fim da Funcao - Busca Binaria  		 */
+/*-----------------------------------------------*/
+
+
+
 /*-------------------------------------------*/
 /*		Funcao - Gerando um relatório .txt	*/
 /* 		pt1: >> 50 dados ordenados <<	*/
@@ -182,86 +262,6 @@ void relatorioTXTpt2(Pib *p){
 }
 /*		Fim da Funcao - Gerando um relatório .txt pt2    */
 /* ------------------------------------------------------*/
-
-
-
-/*-----------------------------------------*/
-/*		Funcao - Ordena ANO com ShellSort	   */				
-void ordenaAno(Pib *vetor, int N){ 
-
- int k, i, j;
- Pib aux;
- 
- for(k=0; k<N; k++){
- 	
- 	for(i=k; i<N; i++){
- 		
- 		aux = vetor[i];
- 		
- 		for(j=i-k; j>=0 && vetor[j].ano > aux.ano; j-=k){
- 			
- 			vetor[j+k] = vetor[j];
-		 }
-		 
-	vetor[j+k] = aux;
-	}
- }
-}
-/*		Fim da Funcao - Ordena ANO com ShellSort		 */
-/*---------------------------------------------------*/
-
-
-
-/*-----------------------------------------*/
-/*		Funcao - Ordena PIB com ShellSort	   */				
-void ordenaPib(Pib *vetor, int N){ 
-
- int k, i, j;
- Pib aux;
- 
- for(k=0; k<N; k++){
- 	
- 	for(i=k; i<N; i++){
- 		
- 		aux = vetor[i];
- 		
- 		for(j=i-k; j>=0 && vetor[j].indice > aux.indice; j-=k){
- 			
- 			vetor[j+k] = vetor[j];
-		 }
-		 
-	vetor[j+k] = aux;
-	}
- }
-}
-/*		Fim da Funcao - Ordena PIB com ShellSort		 */
-/*---------------------------------------------------*/
-
-
-
-/*-----------------------------------------*/
-/*			Funcao - Busca Binaria	      */	
-int buscaBinaria(Pib *dadosPib, int inicio, int fim, int busca) {
-  
-	int i, meio;
-	
-	meio = (int) (inicio+fim)/2;
-	
-	if(dadosPib[meio].ano == busca)
-	return meio;
-	
-	if(inicio >= fim)
-	return -1; //representa que não encontrou o ANO buscado na estrutura
-	
-	if(busca < dadosPib[meio].ano){	
-		buscaBinaria(dadosPib, inicio, meio-1, busca);
-	}
-	else{
-		buscaBinaria(dadosPib, meio+1, fim, busca);
-	}
-}
-/*	    	Fim da Funcao - Busca Binaria  		 */
-/*-----------------------------------------------*/
 
 
 
